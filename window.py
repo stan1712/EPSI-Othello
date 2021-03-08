@@ -16,14 +16,16 @@ def initWindow():
 	# On crée un listener sur les clics et les entrées clavier sur la fenêtre.
 	gameWindow.mainloop()
 
-"""
-def addSign(canvas, type, x0, y0, x1, y1):
+def addSign(canvas, type, x0, y0):
+	x0 = (x0 - 1)
+	y0 = (y0 - 1)
+	
 	if(type == "croix"):
-		canvas.createLine
-	else {
-
+		canvas.create_line(x0 * cell_size + 10, y0 * cell_size + 10, (x0 + 1) * cell_size - 10, (y0 + 1) * cell_size - 10, fill="magenta", width="2")
+		canvas.create_line((x0 + 1) * cell_size - 10, y0 * cell_size + 10, ((x0 + 1) - 1) * cell_size + 10, (y0 + 1) * cell_size - 10, fill="magenta", width="2")
+	elif (type == "rond"): {
+		canvas.create_oval(x0 * cell_size + 5, y0 * cell_size + 5, (x0 + 1) * cell_size - 5, (y0 + 1) * cell_size - 5, outline="magenta", width="2")
 	}
-"""
 
 def initDamier(board_size):
 	canvas_size = cell_size * board_size
