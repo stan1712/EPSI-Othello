@@ -52,6 +52,10 @@ def initDamier(board_size):
 	closeButton = Button(gameWindow, text='Quitter', command=gameWindow.destroy)
 	closeButton.pack()
 
-	canvas.create_line(3 * cell_size, 3 * cell_size, 4 * cell_size, 4 * cell_size, fill="red", width="2")
+	addSign(canvas, "croix", 4, 4)
+	addSign(canvas, "croix", 5, 5)
+
+	addSign(canvas, "rond", 4, 5)
+	addSign(canvas, "rond", 5, 4)
 
 	gameWindow.mainloop()
