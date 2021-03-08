@@ -1,5 +1,7 @@
 from tkinter import *
 
+cell_size = 50
+
 def initWindow():
 	# On crée la fenêtre que l'on utilisera pour afficher le jeu.
 	gameWindow = Tk()
@@ -24,8 +26,6 @@ def addSign(canvas, type, x0, y0, x1, y1):
 """
 
 def initDamier(board_size):
-	cell_size = 50
-
 	canvas_size = cell_size * board_size
 	
 	colors = ["grey", "white"]
