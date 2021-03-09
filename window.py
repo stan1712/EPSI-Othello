@@ -19,18 +19,21 @@ def initWindow():
 def addSign(canvas, type, x0, y0):
 	x0 = (x0 - 1)
 	y0 = (y0 - 1)
+
+	fill = "#BBB"
+	width = "2"
 	
 	if(type == "croix"):
-		canvas.create_line(x0 * cell_size + 10, y0 * cell_size + 10, (x0 + 1) * cell_size - 10, (y0 + 1) * cell_size - 10, fill="magenta", width="2")
-		canvas.create_line((x0 + 1) * cell_size - 10, y0 * cell_size + 10, ((x0 + 1) - 1) * cell_size + 10, (y0 + 1) * cell_size - 10, fill="magenta", width="2")
+		canvas.create_line(x0 * cell_size + 10, y0 * cell_size + 10, (x0 + 1) * cell_size - 10, (y0 + 1) * cell_size - 10, fill=fill, width=width)
+		canvas.create_line((x0 + 1) * cell_size - 10, y0 * cell_size + 10, ((x0 + 1) - 1) * cell_size + 10, (y0 + 1) * cell_size - 10, fill=fill, width=width)
 	elif (type == "rond"): {
-		canvas.create_oval(x0 * cell_size + 5, y0 * cell_size + 5, (x0 + 1) * cell_size - 5, (y0 + 1) * cell_size - 5, outline="magenta", width="2")
+		canvas.create_oval(x0 * cell_size + 5, y0 * cell_size + 5, (x0 + 1) * cell_size - 5, (y0 + 1) * cell_size - 5, outline=fill, width=width)
 	}
 
 def initDamier(board_size):
 	canvas_size = cell_size * board_size
 	
-	colors = ["grey", "white"]
+	colors = ["#2D1E2F", "#3A3657"]
 	
 	gameWindow = Tk()
 	gameWindow.title("Othello")
