@@ -1,7 +1,10 @@
-import window
+import window, game
 
 def main():
 	#window.initWindow()
-	window.initDamier(8)
+	gridSize = 8
+
+	game.initGame(gridSize)
+	window.initDamier(gridSize)
 
 main()
