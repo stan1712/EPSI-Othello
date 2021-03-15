@@ -1,4 +1,5 @@
 from tkinter import *
+import game
 
 cell_size = 50
 
@@ -29,6 +30,8 @@ def addSign(canvas, type, x0, y0):
 	elif (type == "rond"): {
 		canvas.create_oval(x0 * cell_size + 5, y0 * cell_size + 5, (x0 + 1) * cell_size - 5, (y0 + 1) * cell_size - 5, outline=fill, width=width)
 	}
+
+		game.logSign(type, x0, y0)
 
 		print("Pion place en (" + str(x0) + ";" + str(y0) + ")")
 	elif(game.checkPosition(x0, y0) == "B"):

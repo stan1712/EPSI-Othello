@@ -27,3 +27,9 @@ def checkPosition(x, y):
 		return vy[x][y]
 	else:
 		return False
+
+def logSign(player, x, y):
+	vy[x][y] = player
+
+	print(vy)
+	
