@@ -17,8 +17,8 @@ def initWindow():
 	gameWindow.mainloop()
 
 def addSign(canvas, type, x0, y0):
-	x0 = (x0 - 1)
-	y0 = (y0 - 1)
+	if(game.checkPosition(x0, y0) == False):
+		x0 = (x0 - 1)
 
 	fill = "#BBB"
 	width = "2"
@@ -29,6 +29,14 @@ def addSign(canvas, type, x0, y0):
 	elif (type == "rond"): {
 		canvas.create_oval(x0 * cell_size + 5, y0 * cell_size + 5, (x0 + 1) * cell_size - 5, (y0 + 1) * cell_size - 5, outline=fill, width=width)
 	}
+
+		print("Pion place en (" + str(x0) + ";" + str(y0) + ")")
+	elif(game.checkPosition(x0, y0) == "B"):
+		print("Deja blancs en (" + str(x0) + ";" + str(y0) + ")")
+	elif(game.checkPosition(x0, y0) == "N"):
+		print("Deja noirs en (" + str(x0) + ";" + str(y0) + ")")
+	else:
+		print("Placement invalide")
 
 def initDamier(board_size):
 	canvas_size = cell_size * board_size

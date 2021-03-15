@@ -12,3 +12,18 @@ def initGame(gridSize):
 		vy.append(temp)
 
 	print(vy)
+
+def checkPosition(x, y):
+	x = x - 1
+	y = y - 1
+
+	# dégager le 8 constant pour mettre gridSize
+	if(x > 8): 
+		return "ERROR X : (" + str(x) + ";" + str(y) + ")"
+	if(y > 8): 
+		return "ERROR Y : (" + str(x) + ";" + str(y) + ")"
+
+	if(vy[x][y]):
+		return vy[x][y]
+	else:
+		return False
