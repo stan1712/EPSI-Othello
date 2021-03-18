@@ -1,7 +1,10 @@
 def initGame(gridSize):
 	global vy
+	global activePlayer
 
 	vy = []
+	
+	activePlayer = "B"
 
 	for i in range(gridSize):
 		temp = []
@@ -32,4 +35,16 @@ def logSign(player, x, y):
 	vy[x][y] = player
 
 	print(vy)
-	
+
+def whosTurn():
+	return activePlayer
+
+def nextTurn():
+	global activePlayer
+
+	if(activePlayer == "B"):
+		activePlayer = "N"
+	elif(activePlayer == "N"):
+		activePlayer = "B"
+
+	return whosTurn()

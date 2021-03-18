@@ -1,4 +1,5 @@
 from tkinter import *
+import math as Math
 import game
 
 cell_size = 50
@@ -38,7 +39,10 @@ def addSign(canvas, type, x0, y0):
 
 		game.logSign(type, x0, y0)
 
-		print("Pion place en (" + str(x0) + ";" + str(y0) + ")")
+		print("Pion " + game.whosTurn() + " place en (" + str(x0) + ";" + str(y0) + ")")
+		
+		game.nextTurn()
+
 	elif(game.checkPosition(x0, y0) == "B"):
 		print("Deja blancs en (" + str(x0) + ";" + str(y0) + ")")
 	elif(game.checkPosition(x0, y0) == "N"):
@@ -56,6 +60,12 @@ def initDamier(board_size):
 	gameWindow.title("Othello")
 	
 	canvas = Canvas(gameWindow, width=canvas_size, height=canvas_size)
+
+	def coordinates(event):
+		addSign(canvas, game.whosTurn(), Math.floor(event.x / cell_size) + 1, Math.floor(event.y / cell_size) + 1)
+
+	canvas.bind("<Button-1>", coordinates)
+
 	canvas.pack()
 	
 	for x in range(board_size):
@@ -72,10 +82,12 @@ def initDamier(board_size):
 	closeButton = Button(gameWindow, text='Quitter', command=gameWindow.destroy)
 	closeButton.pack()
 
-	addSign(canvas, "B", 4, 4)
-	addSign(canvas, "B", 5, 5)
+	addSign(canvas, game.whosTurn(), 4, 4)
 
-	addSign(canvas, "N", 4, 5)
-	addSign(canvas, "N", 5, 4)
+	addSign(canvas, game.whosTurn(), 4, 5)
+
+	addSign(canvas, game.whosTurn(), 5, 5)
+
+	addSign(canvas, game.whosTurn(), 5, 4)
 
 	gameWindow.mainloop()
