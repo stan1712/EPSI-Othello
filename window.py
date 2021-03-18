@@ -45,9 +45,9 @@ def addSign(canvas, type, x0, y0):
 			game.nextTurn()
 
 		elif(game.checkPosition(x0, y0) == "B"):
-			print("Deja blancs en (" + str(x0) + ";" + str(y0) + ")")
+			print("---\nCoup non valide : Deja pion blanc en (" + str(x0) + ";" + str(y0) + ")")
 		elif(game.checkPosition(x0, y0) == "N"):
-			print("Deja noirs en (" + str(x0) + ";" + str(y0) + ")")
+			print("---\nCoup non valide : Deja pion noir en (" + str(x0) + ";" + str(y0) + ")")
 		else:
 			print("Placement invalide")
 
