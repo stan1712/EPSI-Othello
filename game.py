@@ -42,14 +42,14 @@ def stateGame():
 def sayEndGame(whoWon, count):
 	global onGame
 	
-	print("Fin de partie !")
+	print("-*-*-\nFin de partie !")
 
 	if(whoWon == "B"):
 		winner = "Blancs"
 	elif(whoWon == "N"):
 		winner = "Noirs"
 	
-	print("Les " + winner + " ont gagnes avec " + str(count) + " pions !")
+	print("Les " + winner + " ont gagnes avec " + str(count) + " pions !\n-*-*-")
 
 	onGame = False
 
