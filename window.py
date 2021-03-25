@@ -21,28 +21,31 @@ def initWindow():
 def addSign(canvas, type, x0, y0):
 	if(game.isGameOn()):
 		if(game.checkPosition(x0, y0) == False):
-			x0 = (x0 - 1)
-			y0 = (y0 - 1)
+			if(game.isMoveValid(type, x0, y0)):
+				x0 = (x0 - 1)
+				y0 = (y0 - 1)
 
-			whiteFill = "WHITE"
-			blackFill = "BLACK"
+				whiteFill = "WHITE"
+				blackFill = "BLACK"
 
-			width = "2"
-			
-			if(type == "N"):
-				"canvas.create_line(x0 * cell_size + 10, y0 * cell_size + 10, (x0 + 1) * cell_size - 10, (y0 + 1) * cell_size - 10, fill=fill, width=width)"
-				"canvas.create_line((x0 + 1) * cell_size - 10, y0 * cell_size + 10, ((x0 + 1) - 1) * cell_size + 10, (y0 + 1) * cell_size - 10, fill=fill, width=width)"
+				width = "2"
 				
-				canvas.create_oval(x0 * cell_size + 5, y0 * cell_size + 5, (x0 + 1) * cell_size - 5, (y0 + 1) * cell_size - 5, outline=blackFill, fill=blackFill, width=width)
-			elif (type == "B"): {
-				canvas.create_oval(x0 * cell_size + 5, y0 * cell_size + 5, (x0 + 1) * cell_size - 5, (y0 + 1) * cell_size - 5, outline=whiteFill, fill=whiteFill, width=width)
-			}
+				if(type == "N"):
+					"canvas.create_line(x0 * cell_size + 10, y0 * cell_size + 10, (x0 + 1) * cell_size - 10, (y0 + 1) * cell_size - 10, fill=fill, width=width)"
+					"canvas.create_line((x0 + 1) * cell_size - 10, y0 * cell_size + 10, ((x0 + 1) - 1) * cell_size + 10, (y0 + 1) * cell_size - 10, fill=fill, width=width)"
+					
+					canvas.create_oval(x0 * cell_size + 5, y0 * cell_size + 5, (x0 + 1) * cell_size - 5, (y0 + 1) * cell_size - 5, outline=blackFill, fill=blackFill, width=width)
+				elif (type == "B"): {
+					canvas.create_oval(x0 * cell_size + 5, y0 * cell_size + 5, (x0 + 1) * cell_size - 5, (y0 + 1) * cell_size - 5, outline=whiteFill, fill=whiteFill, width=width)
+				}
 
-			game.logSign(type, x0, y0)
+				game.logSign(type, x0, y0)
 
-			print("Pion " + game.whosTurn() + " place en (" + str(x0) + ";" + str(y0) + ")")
-			
-			game.nextTurn()
+				print("Pion " + game.whosTurn() + " place en (" + str(x0) + ";" + str(y0) + ")")
+				
+				game.nextTurn()
+			else:
+				print("---\nCoup non valide, merci de rejouer")
 
 		elif(game.checkPosition(x0, y0) == "B"):
 			print("---\nCoup non valide : Deja pion blanc en (" + str(x0) + ";" + str(y0) + ")")

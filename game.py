@@ -56,6 +56,31 @@ def sayEndGame(whoWon, count):
 def isGameOn():
 	return onGame
 
+def isMoveValid(player, x, y):
+	x = x - 1
+	y = y - 1
+
+	if(rounds == 1):
+		if(vy[x + 1][y] == player): return True
+		elif(vy[x][y + 1] == player): return True
+
+		elif(vy[x - 1][y] == player): return True
+		elif(vy[x][y - 1] == player): return True
+
+		else: return False
+	elif(rounds > 1):
+		if(vy[x + 1][y] == whoIsNext()): return True
+		elif(vy[x][y + 1] == whoIsNext()): return True
+
+		elif(vy[x - 1][y] == whoIsNext()): return True
+		elif(vy[x][y - 1] == whoIsNext()): return True
+		
+		elif(vy[x + 1][y + 1] == whoIsNext()): return True
+		elif(vy[x - 1][y - 1] == whoIsNext()): return True
+
+		else: return False
+	else: return True
+
 def checkPosition(x, y):
 	x = x - 1
 	y = y - 1
