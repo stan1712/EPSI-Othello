@@ -150,4 +150,6 @@ def nextTurn():
 	elif(activePlayer == "N"):
 		activePlayer = "B"
 
+	print("C'est au tour de " + whosTurn() + " de jouer.")
+
 	return whosTurn()
