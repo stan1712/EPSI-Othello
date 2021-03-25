@@ -26,7 +26,7 @@ def stateGame():
 	compteurB = 0
 	compteurN = 0
 
-	if(rounds > 4):
+	if(rounds > 0):
 		for i in vy:
 			for e in i:
 				if(e == "B"):
