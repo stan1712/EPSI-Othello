@@ -136,6 +136,12 @@ def logSign(player, x, y):
 def whosTurn():
 	return activePlayer
 
+def whoIsNext():
+	if(activePlayer == "B"):
+		return "N"
+	elif(activePlayer == "N"):
+		return "B"
+
 def nextTurn():
 	global activePlayer
 
