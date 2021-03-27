@@ -97,27 +97,13 @@ def checkPosition(x, y):
 		return False
 
 def checkCrossing(player, x, y):
-	"for i in vy[x]:"
-	"print(i)"
+	"""
+	(x,y) : x, y
+	S : player
+	S2 : whoIsNext()
+	"""
+	pions_a_retourner = []
 
-	# Vérification verticale
-	print(vy[x])
-
-	horizontal = []
-	triggerH = False
-
-	for v, index in vy[x]:
-		index = index + 1
-
-		if(v == player):
-			triggerH = not(triggerH)
-			print(triggerH)
-
-			print(index, y)
-
-	print(horizontal)
-
-	# Vérification horizontale
 	
 
 def logSign(player, x, y):
@@ -126,7 +112,7 @@ def logSign(player, x, y):
 	vy[x][y] = player
 
 	stateGame()
-	checkCrossing(player, x, y)
+	#checkCrossing(player, x, y)
 
 	if(rounds > 0):
 		print("---\nTour numero " + str(rounds) + " :")
