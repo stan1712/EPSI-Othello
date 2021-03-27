@@ -1,22 +1,8 @@
 from tkinter import *
 import math as Math
-import game
+import game, windows
 
 cell_size = 50
-
-def initWindow():
-	# On crée la fenêtre que l'on utilisera pour afficher le jeu.
-	gameWindow = Tk()
-
-	# On crée nos éléments pour les incorporer à notre fenêtre.
-	Text1 = Label(gameWindow, text='coucou', fg='red')
-	Text1.pack()
-
-	closeButton = Button(gameWindow, text='iodjsf', command=gameWindow.destroy)
-	closeButton.pack()
-
-	# On crée un listener sur les clics et les entrées clavier sur la fenêtre.
-	gameWindow.mainloop()
 
 def addSign(canvas, type, x0, y0):
 	if(game.isGameOn()):
@@ -83,6 +69,10 @@ def initDamier(board_size):
 				fill=color, outline=color
 			)
 	
+
+	rulesButton = Button(gameWindow, text='Règles', command=windows.showRules)
+	rulesButton.pack()
+
 	closeButton = Button(gameWindow, text='Quitter', command=gameWindow.destroy)
 	closeButton.pack()
 
