@@ -48,6 +48,7 @@ def initDamier(board_size):
 	
 	gameWindow = Tk()
 	gameWindow.title("Othello")
+	gameWindow.configure(bg='grey')
 	
 	canvas = Canvas(gameWindow, width=canvas_size, height=canvas_size)
 
@@ -70,11 +71,11 @@ def initDamier(board_size):
 			)
 	
 
-	rulesButton = Button(gameWindow, text='Règles', command=windows.showRules)
-	rulesButton.pack()
+	closeButton = Button(gameWindow, text='Quitter', fg='red', bg='#009067', command=gameWindow.destroy)	
+	closeButton.pack(side=BOTTOM, fill=X, ipady=10, padx=10, pady=10)
 
-	closeButton = Button(gameWindow, text='Quitter', command=gameWindow.destroy)
-	closeButton.pack()
+	rulesButton = Button(gameWindow, text='Règles', fg='red', bg='#009067', command=windows.showRules)
+	rulesButton.pack(side=BOTTOM, fill=X, ipady=10, padx=10, pady=10)
 
 	addSign(canvas, game.whosTurn(), 4, 4)
 
