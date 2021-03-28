@@ -1,6 +1,8 @@
+# On importe la librairie  tkinter (interface)
 from tkinter import *
 import tkinter.font as font
 
+# On import nos librairies gameWindow et game (gestion de jeu et d'interface)
 import gameWindow, game
 
 # On crée la fenêtre principale qui nous permettra de se déplacer entre les règles et la fenêtre de jeu.

@@ -23,7 +23,7 @@ def addSign(canvas, type, x0, y0):
 
 				width = "2"
 				
-				# On dessin un rond pour le joueur blanc ou noir
+				# On dessine un rond pour le joueur blanc ou noir
 				if(type == "N"):
 					canvas.create_oval(x0 * cell_size + 5, y0 * cell_size + 5, (x0 + 1) * cell_size - 5, (y0 + 1) * cell_size - 5, outline=blackFill, fill=blackFill, width=width)
 				elif (type == "B"): {
