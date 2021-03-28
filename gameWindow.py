@@ -7,9 +7,13 @@ import game, windows
 
 cell_size = 50
 
+# Fonction qui vérifie et place (ou rejete) un pion
 def addSign(canvas, type, x0, y0):
+	# Si le jeu est en cours (True ou False)
 	if(game.isGameOn()):
+		# Si le mouvement est dans la taille de la grille et pas pris par un autre pion
 		if(game.checkPosition(x0, y0) == False):
+			# Si le mouvement est valide
 			if(game.isMoveValid(type, x0, y0)):
 				x0 = (x0 - 1)
 				y0 = (y0 - 1)
@@ -19,10 +23,8 @@ def addSign(canvas, type, x0, y0):
 
 				width = "2"
 				
+				# On dessin un rond pour le joueur blanc ou noir
 				if(type == "N"):
-					"canvas.create_line(x0 * cell_size + 10, y0 * cell_size + 10, (x0 + 1) * cell_size - 10, (y0 + 1) * cell_size - 10, fill=fill, width=width)"
-					"canvas.create_line((x0 + 1) * cell_size - 10, y0 * cell_size + 10, ((x0 + 1) - 1) * cell_size + 10, (y0 + 1) * cell_size - 10, fill=fill, width=width)"
-					
 					canvas.create_oval(x0 * cell_size + 5, y0 * cell_size + 5, (x0 + 1) * cell_size - 5, (y0 + 1) * cell_size - 5, outline=blackFill, fill=blackFill, width=width)
 				elif (type == "B"): {
 					canvas.create_oval(x0 * cell_size + 5, y0 * cell_size + 5, (x0 + 1) * cell_size - 5, (y0 + 1) * cell_size - 5, outline=whiteFill, fill=whiteFill, width=width)
@@ -30,10 +32,13 @@ def addSign(canvas, type, x0, y0):
 
 				game.logSign(type, x0, y0)
 
+				# On affiche le bon placement du pion
 				print("Pion " + game.whosTurn() + " place en (" + str(x0) + ";" + str(y0) + ")")
 			else:
+				# On demande au joueur de rejouer son coup
 				print("---\nCoup non valide, merci de rejouer")
 
+		# Si les coordonnées sont déjà prises par un pion, on affiche par qui et le joueur devra rejouer son coup
 		elif(game.checkPosition(x0, y0) == "B"):
 			print("---\nCoup non valide : Deja pion blanc en (" + str(x0) + ";" + str(y0) + ")")
 		elif(game.checkPosition(x0, y0) == "N"):
