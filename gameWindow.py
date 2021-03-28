@@ -1,5 +1,8 @@
+# On importe les librairies Math et tkinter (interface et fonctions mathématiques)
 from tkinter import *
 import math as Math
+
+# On import nos librairies game et windows (gestion de jeu et d'interface)
 import game, windows
 
 cell_size = 50
@@ -28,8 +31,6 @@ def addSign(canvas, type, x0, y0):
 				game.logSign(type, x0, y0)
 
 				print("Pion " + game.whosTurn() + " place en (" + str(x0) + ";" + str(y0) + ")")
-				
-				game.nextTurn()
 			else:
 				print("---\nCoup non valide, merci de rejouer")
 
@@ -40,10 +41,10 @@ def addSign(canvas, type, x0, y0):
 		else:
 			print("Placement invalide")
 
+# On initie/construit le damier dans notre interface de jeu
 def initDamier(board_size):
 	canvas_size = cell_size * board_size
 	
-	#colors = ["#2D1E2F", "#3A3657"]
 	colors = ["#009067", "#02bd88"]
 	
 	gameWindow = Tk()
@@ -52,6 +53,7 @@ def initDamier(board_size):
 	
 	canvas = Canvas(gameWindow, width=canvas_size, height=canvas_size)
 
+	# On définit et execute la fonction de placement d'un pion, lorsqu'un clic gauche est émis
 	def coordinates(event):
 		addSign(canvas, game.whosTurn(), Math.floor(event.x / cell_size) + 1, Math.floor(event.y / cell_size) + 1)
 
@@ -70,19 +72,17 @@ def initDamier(board_size):
 				fill=color, outline=color
 			)
 	
-
+	# On ajoute des boutons de navigation pour quitter et accéder aux règles
 	closeButton = Button(gameWindow, text='Quitter', fg='red', bg='#009067', command=gameWindow.destroy)	
 	closeButton.pack(side=BOTTOM, fill=X, ipady=10, padx=10, pady=10)
 
 	rulesButton = Button(gameWindow, text='Règles', fg='red', bg='#009067', command=windows.showRules)
 	rulesButton.pack(side=BOTTOM, fill=X, ipady=10, padx=10, pady=10)
 
+	# On joue les 4 premiers tours pour poser les pions centraux
 	addSign(canvas, game.whosTurn(), 4, 4)
-
 	addSign(canvas, game.whosTurn(), 4, 5)
-
 	addSign(canvas, game.whosTurn(), 5, 5)
-
 	addSign(canvas, game.whosTurn(), 5, 4)
 
 	gameWindow.mainloop()
