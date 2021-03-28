@@ -16,7 +16,7 @@ def mainMenu():
 	buttonPlacement.pack()
 
 	f = font.Font(weight='bold', size=15)
-	jugarButton = Button(buttonPlacement, text='Jouer',height=2, width=10, fg='black', bg='#009067', command=gameMenu)
+	jugarButton = Button(buttonPlacement, text='Jouer',height=2, width=10, fg='black', bg='#009067', command=gridSize)
 	jugarButton['font'] = f
 	jugarButton.pack(side=LEFT, padx=20, pady=(80,10))
 
@@ -59,7 +59,7 @@ def showRules():
 	rules.pack(pady=(10,10))
 	
 	closeButton = Button(rulesWindow, text='Quitter', fg='red', bg='#009067', command=rulesWindow.destroy)
-	closeButton.pack(side=BOTTOM,fill=X, ipady=10, padx=10, pady=10)
+	closeButton.pack(side=BOTTOM, fill=X, ipady=10, padx=10, pady=10)
 
 	
 	rulesWindow.mainloop()
@@ -70,3 +70,26 @@ def gameMenu():
 
 	game.initGame(gridSize)
 	gameWindow.initDamier(gridSize)
+
+
+def gridSize():
+	gridSize = Tk()
+
+	gridSize.title("TAILLE DU PLATEAU")
+	gridSize.geometry('400x300')
+	gridSize.configure(bg='#02bd88')
+
+
+	f = font.Font(size=5)
+	title = Label(gridSize, text='Veuillez indiquez la taille du plateau :', bg='#02bd88')
+	title['font'] = f
+	title.pack(pady=(20,0))
+
+	getSize = Entry(gridSize)
+	getSize.pack(pady=(10,0))	
+
+	closeButton = Button(gridSize, text='Quitter', fg='red', bg='#009067', command=gridSize.destroy)
+	closeButton.pack(side=BOTTOM, fill=X, ipady=10, padx=10, pady=10)
+
+	jugarButton = Button(gridSize, text='Jouer', fg='black', bg='#009067', command=lambda:[gridSize.destroy(), gameMenu()])
+	jugarButton.pack(side=BOTTOM, fill=X, ipady=10, padx=10, pady=10)
